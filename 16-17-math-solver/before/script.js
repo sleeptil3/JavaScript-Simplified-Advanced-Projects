@@ -82,8 +82,7 @@ const evaluate = (str) => {
 form.onsubmit = (e) => {
 	e.preventDefault()
 	const problem = input.value.replaceAll(" ", "")
-	let answer
-	answer = REGEX.CHECK.test(problem) ? ERRORS.DEFAULT : evaluate(problem)
+	const answer = REGEX.CHECK.test(problem) ? ERRORS.DEFAULT : evaluate(problem)
 	output(answer)
 	historyNode.innerText = `${problem} = ${isNaN(answer) ? (answer === ERRORS.DIV_BY_ZERO ? ERRORS.DIV_BY_ZERO : ERRORS.DEFAULT) : answer}`
 	historyUL.appendChild(historyNode)
